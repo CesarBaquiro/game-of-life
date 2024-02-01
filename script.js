@@ -52,8 +52,18 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Alto del tablero:", height);
             console.log("width del tablero:", width);
             console.log("Mostrar arbol binario:", mostrarArbol);
+
+            //Aumentamos el tamaño del width internamente
+            width = width * 100;
+            height = height * 100;
+
+            // Update the global variables with the new values
+            columnas = width;
+            filas = height;
+
+            // Initialize the game
+            inicializa(width, height);
         }
-        inicializa();
     });
 });
 
@@ -172,16 +182,16 @@ function borraCanvas() {
     canvas.height = canvas.height;
 }
 
-function inicializa() {
+function inicializa(width, height) {
     //Asociamos el canvas
     canvas = document.getElementById("tablero");
     ctx = canvas.getContext("2d");
 
     //Ajustamos el tamaño del canvas
+    console.log("width del tablero en pixeles " + width);
+    console.log("Alto del tablero en pixeles " + height);
     canvas.width = width;
     canvas.height = height;
-    console.log("width del tablero en pixeles " + canvas.width);
-    console.log("Alto del tablero en pixeles " + canvas.height);
 
     //calculamos tamaño tiles
     //Multiplicamos por 10 para que el tamaño de los pixeles sea mas grande
