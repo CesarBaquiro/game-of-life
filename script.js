@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Evento clic en el botón "Jugar"
     jugarButton.addEventListener("click", function () {
         // Obtener y convertir los valores de los inputs y radios a enteros
+
         let height = parseInt(heightInput.value);
         let width = parseInt(widthInput.value);
         let mostrarArbol = mostrarArbolRadio.checked;
@@ -49,9 +50,13 @@ document.addEventListener("DOMContentLoaded", function () {
             );
         } else {
             // Puedes hacer lo que quieras con los valores enteros, por ejemplo, imprimirlos en la consola
-            console.log("Alto del tablero:", height);
-            console.log("width del tablero:", width);
-            console.log("Mostrar arbol binario:", mostrarArbol);
+
+            //console.log("Alto del tablero:", height);
+            //console.log("width del tablero:", width);
+            //console.log("Mostrar arbol binario:", mostrarArbol);
+
+            // Guardar mostrarArbol en el localStorage
+            localStorage.setItem("mostrarArbol", mostrarArbol);
 
             //Aumentamos el tamaño del width internamente
             width = width * 100;
@@ -65,6 +70,14 @@ document.addEventListener("DOMContentLoaded", function () {
             inicializa(width, height);
         }
     });
+
+    // Recuperar mostrarArbol del localStorage al cargar la página
+    let mostrarArbolLocalStorage = localStorage.getItem("mostrarArbol");
+    if (mostrarArbolLocalStorage !== null) {
+        // Establecer el estado del radio button según el valor recuperado
+        mostrarArbolRadio.checked = mostrarArbolLocalStorage === "true";
+        noMostrarArbolRadio.checked = !mostrarArbolRadio.checked;
+    }
 });
 
 // -----------------------RULES GAME---------
@@ -188,8 +201,8 @@ function inicializa(width, height) {
     ctx = canvas.getContext("2d");
 
     //Ajustamos el tamaño del canvas
-    console.log("width del tablero en pixeles " + width);
-    console.log("Alto del tablero en pixeles " + height);
+    //console.log("width del tablero en pixeles " + width);
+    //console.log("Alto del tablero en pixeles " + height);
     canvas.width = width;
     canvas.height = height;
 
@@ -199,7 +212,7 @@ function inicializa(width, height) {
     tileY = Math.floor((height / columnas) * 10);
 
     //creamos el tablero
-    console.log(columnas);
+    //console.log(columnas);
     tablero = creaArray2D(filas, columnas);
     //Lo inicializamos
     inicializaTablero(tablero);
@@ -209,7 +222,7 @@ function inicializa(width, height) {
         main();
     }, 1000 / fps);
 
-    console.log("Se inicializo");
+    //console.log("Se inicializo");
 }
 
 function dibujaTablero(obj) {
