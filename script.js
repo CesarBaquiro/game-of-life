@@ -6,9 +6,6 @@ let fps = 15;
 let height;
 let width;
 
-//let height = parseInt(prompt("Introduzca el height del tablero entre 1 y 5")); //pixels height
-//let width = parseInt(prompt("Introduzca el width del tablero 1 y 5")); //pixels width
-
 let tileX, tileY;
 
 //letiables relacionadas con el tablero de juego
@@ -44,17 +41,12 @@ document.addEventListener("DOMContentLoaded", function () {
         let mostrarArbol = mostrarArbolRadio.checked;
 
         // Verificar si la conversión fue exitosa (si los valores ingresados son números)
+
         if (isNaN(height) || isNaN(width)) {
             alert(
                 "Por favor, ingresa valores numéricos válidos para el height y el width del tablero."
             );
         } else {
-            // Puedes hacer lo que quieras con los valores enteros, por ejemplo, imprimirlos en la consola
-
-            //console.log("Alto del tablero:", height);
-            //console.log("width del tablero:", width);
-            //console.log("Mostrar arbol binario:", mostrarArbol);
-
             // Guardar mostrarArbol en el localStorage
             localStorage.setItem("mostrarArbol", mostrarArbol);
 
@@ -201,8 +193,6 @@ function inicializa(width, height) {
     ctx = canvas.getContext("2d");
 
     //Ajustamos el tamaño del canvas
-    //console.log("width del tablero en pixeles " + width);
-    //console.log("Alto del tablero en pixeles " + height);
     canvas.width = width;
     canvas.height = height;
 
@@ -221,8 +211,6 @@ function inicializa(width, height) {
     setInterval(function () {
         main();
     }, 1000 / fps);
-
-    //console.log("Se inicializo");
 }
 
 function dibujaTablero(obj) {
@@ -253,5 +241,4 @@ function main() {
     dibujaTablero(tablero);
 }
 
-//Se debe re poner la funcion de inicializar en el boton de jugar para que se inicie el juego
-//inicializa();
+//Se debe re poner la funcion de inicializar en el boton de jugar para que se inicie el juego inicializa();

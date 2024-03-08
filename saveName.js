@@ -48,10 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (playerNameSpan) {
             // Establecer el contenido del span con el nombre del jugador
             playerNameSpan.textContent = playerName;
-        } else {
-            //console.error("Elemento playerNameSpan no encontrado.");
         }
-    } else {
-        //console.error("Nombre del jugador no encontrado en el localStorage.");
     }
 });

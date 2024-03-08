@@ -1,0 +1,11 @@
+{
+    "name": "game-of-life",
+    "version": "1.0.0",
+    "description": "Tu descripción",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
